@@ -40,12 +40,18 @@ declare namespace bodyParser {
      * where buf is a Buffer of the raw request body and encoding is the encoding of the request.
      */
     verify?(req: http.IncomingMessage, res: http.ServerResponse, buf: Buffer, encoding: string): void;
+
+    /**
+     *
+     *
+     */
+    parse?(body: string): any;
   }
 
-  interface OptionsJsonBitIng extends OptionsJson {
+  interface OptionsJsonBigInt extends OptionsJson {
     /**
-     * When set to `true`, will only accept arrays and objects;
-     * when `false` will accept anything JSON.parse accepts. Defaults to `true`.
+     *
+     *
      */
     storeAsString?: boolean;
   }
@@ -61,6 +67,12 @@ declare namespace bodyParser {
      * when `false` will accept anything JSON.parse accepts. Defaults to `true`.
      */
     strict?: boolean;
+
+    /**
+     *
+     *
+     */
+    parser?(body: string, reviver?: (key: string, value: any) => any): any
   }
 
   interface OptionsText extends Options {
