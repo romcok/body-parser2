@@ -38,6 +38,17 @@ exports = module.exports = deprecate.function(bodyParser,
   'bodyParser: use individual json/urlencoded middlewares')
 
 /**
+ * JSON-BigInt parser.
+ * @public
+ */
+
+Object.defineProperty(exports, 'jsonBigInt', {
+  configurable: true,
+  enumerable: true,
+  get: createParserGetter('jsonBigInt')
+})
+
+/**
  * JSON parser.
  * @public
  */
@@ -96,14 +107,14 @@ function bodyParser (options) {
   // exclude type option
   if (options) {
     for (var prop in options) {
-      if (prop !== 'type') {
+      if (prop !== 'type' && prop !== 'bigint') {
         opts[prop] = options[prop]
       }
     }
   }
 
   var _urlencoded = exports.urlencoded(opts)
-  var _json = exports.json(opts)
+  var _json = options && options.bigint ? exports.jsonBigInt(opts) : exports.json(opts)
 
   return function bodyParser (req, res, next) {
     _json(req, res, function (err) {
@@ -138,6 +149,9 @@ function loadParser (parserName) {
 
   // this uses a switch for static require analysis
   switch (parserName) {
+    case 'jsonBigInt':
+      parser = require('./lib/types/json-bigint')
+      break
     case 'json':
       parser = require('./lib/types/json')
       break

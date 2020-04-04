@@ -1,8 +1,9 @@
 {
-  "name": "body-parser",
-  "description": "Node.js body parsing middleware",
-  "version": "1.19.0",
+  "name": "body-parser2",
+  "description": "Node.js body parsing middleware with custom parsers and BigInt support",
+  "version": "2.0.0",
   "contributors": [
+    "Roman Novák <bejvas.jod@gmail.com>",
     "Douglas Christopher Wilson <doug@somethingdoug.com>",
     "Jonathan Ong <me@jongleberry.com> (http://jongleberry.com)"
   ],
@@ -15,6 +16,7 @@
     "depd": "~1.1.2",
     "http-errors": "1.7.3",
     "iconv-lite": "0.4.24",
+    "json-bigint": "^0.3.0",
     "on-finished": "~2.3.0",
     "qs": "6.9.3",
     "raw-body": "2.4.1",
