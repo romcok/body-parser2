@@ -36,6 +36,7 @@
     "safe-buffer": "5.2.0",
     "supertest": "4.0.2"
   },
+  "typings": "./index.d.ts",
   "files": [
     "lib/",
     "LICENSE",
