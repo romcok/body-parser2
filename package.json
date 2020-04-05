@@ -13,7 +13,6 @@
   "repository": "expressjs/body-parser",
   "dependencies": {
     "bytes": "3.1.0",
-    "connect": "^3.7.0",
     "content-type": "~1.0.4",
     "debug": "2.6.9",
     "depd": "~1.1.2",
@@ -26,6 +25,7 @@
     "type-is": "~1.6.18"
   },
   "devDependencies": {
+    "@types/connect": "^3.4.33",
     "@types/node": "^13.11.0",
     "eslint": "6.8.0",
     "eslint-config-standard": "14.1.1",
