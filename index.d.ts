@@ -17,11 +17,11 @@ import * as http from 'http';
 // for docs go to https://github.com/expressjs/body-parser/tree/1.19.0#body-parser
 
 /** @deprecated */
-declare function bodyParser(
-  options?: bodyParser.OptionsJson & bodyParser.OptionsText & bodyParser.OptionsUrlencoded,
+declare function bodyParser2(
+  options?: bodyParser2.OptionsJson & bodyParser2.OptionsText & bodyParser2.OptionsUrlencoded,
 ): NextHandleFunction;
 
-declare namespace bodyParser {
+declare namespace bodyParser2 {
   interface Options {
     /** When set to true, then deflated (compressed) bodies will be inflated; when false, deflated bodies are rejected. Defaults to true. */
     inflate?: boolean;
@@ -129,4 +129,4 @@ declare namespace bodyParser {
   function urlencoded(options?: OptionsUrlencoded): NextHandleFunction;
 }
 
-export = bodyParser;
+export = bodyParser2;

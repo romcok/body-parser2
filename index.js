@@ -34,7 +34,7 @@ var parsers = Object.create(null)
  * @type {Parsers}
  */
 
-exports = module.exports = deprecate.function(bodyParser,
+exports = module.exports = deprecate.function(bodyParser2,
   'bodyParser: use individual json/urlencoded middlewares')
 
 /**
@@ -101,7 +101,7 @@ Object.defineProperty(exports, 'urlencoded', {
  * @public
  */
 
-function bodyParser (options) {
+function bodyParser2 (options) {
   var opts = {}
 
   // exclude type option
@@ -116,7 +116,7 @@ function bodyParser (options) {
   var _urlencoded = exports.urlencoded(opts)
   var _json = options && options.bigint ? exports.jsonBigInt(opts) : exports.json(opts)
 
-  return function bodyParser (req, res, next) {
+  return function bodyParser2 (req, res, next) {
     _json(req, res, function (err) {
       if (err) return next(err)
       _urlencoded(req, res, next)
